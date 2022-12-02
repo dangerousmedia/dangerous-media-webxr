@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
+    <script src="camera-control.js"></script>
+    <title>Dangerous Media Productions</title>
+  </head>
+  <body>
+    <a-scene fog="type: linear; color: #000">
+      <a-assets>
+        <img id="dm-logo" src="assets/DM_Logo.png">
+        <img id="wood" src="assets/wood.png">
+        <img id="cloud" src="assets/cloud.png">
+        <img id="cloud2" src="assets/cloud2.png">
+        <img id="cloud3" src="assets/cloud3.png">
+        <img id="roof1" src="assets/rooftiles1.jpg">
+        <img id="concrete" src="assets/concrete.png">
+        <img id="cableman" src="assets/CableMan_Proud_logo.png">
+        <img id="grass" src="https://cdn.glitch.global/4888167a-4fcb-4871-87d9-5d7ea8524c9b/TexturesCom_Grass0126_1_seamless_S.jpg?v=1667237630099">
+        <a-asset-item id="strawberry" src="assets/Strawberry_gltf.gltf"></a-asset-item>
+        <a-asset-item id="tree" src="/assets/tree/scene.gltf"></a-asset-item>
+        <a-asset-item id="window" src="assets/window/scene.gltf"></a-asset-item>
+        <a-asset-item id="big-window" src="assets/old_wooden_window/scene.gltf"></a-asset-item>
+        <video id="horse" autoplay loop="true" src="assets/Horses_9.mp4"></video>
+      </a-assets>
+
+      <a-camera class="mainCamera" position="-100 2.6 85" control-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
+     <a-entity environment="preset: default;ground: hills; groundYScale: 3; fog:0.1; playArea: 100 groundColor: #486F38; groundColor2: #176917; groundTexture: walkernoise; horizonColor: #eeaf61; skyType: gradient; grid: none;"></a-entity> 
+
+      <a-plane material="color: #FFF;
+                         src: #grass;
+                         repeat: 5000 5000;"
+               rotation="-90 0 0"
+               position="0 1 0"
+               scale="10000 10000 2"> </a-plane> 
+      <a-image src="#cloud" color="#D3D3D3" position="-5 100 -150" rotation="45 0 0" scale="100 25 1"></a-image>
+      <a-image src="#cloud" color="#D2D2D2" position="-50 120 -130" rotation="65 0 0" scale="200 40 1"></a-image>
+      <a-image src="#cloud2" color="#D3D3D3"position="-5 75 -150" rotation="45 0 0" scale="100 25 1"></a-image>
+      <a-image src="#cloud3" color="#D3D3D3" position="150 89 -50" rotation="45 -55 0" scale="100 25 1"></a-image>
+      <a-image src="#cloud2" color="#D1D1D1"position="100 75 -100" rotation="45 -35 0" scale="200 50 1"></a-image>
+      <a-image src="#cloud2" color="#D1D1D1"position="100 75 -100" rotation="45 -35 0" scale="200 50 1"></a-image>
+      <a-image src="#cloud2" color="#D1D1D1"position="100 75 -100" rotation="45 -35 0" scale="200 50 1"></a-image>
+
+      <a-image src="#cloud2" color="#D1D1D1"position="130 75 -40" rotation="45 -60 0" scale="200 50 1"></a-image>
+      <a-image src="#cloud2" color="#D1D1D1"position="130 75 -40" rotation="45 -60 0" scale="200 50 1"></a-image>
+      <a-image src="#cloud2" color="#D1D1D1"position="130 75 -40" rotation="45 -60 0" scale="200 50 1"></a-image>
+
+      <a-entity id="dm_logo_coin" position="-80 4 80" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+        <a-text
+        value="Welcome to the world of Dangerous Media!"
+        color="#FF5C35"
+        font-size="250px"
+        text-align ="center"
+        position="-2 -1 0"></a-text>
+        <a-cylinder color="black" rotation="90 0 0" position="0 .50 -.055" radius="1" height=".1"></a-cylinder>
+        <a-image src="#dm-logo" position="0 0.50 0" width="2.75" height="3.5"></a-image>
+      </a-entity>
+
+      <a-entity gltf-model="#tree" rotation="0 -45 0" position="150 0 -59" scale="5 5 5"></a-entity>
+      <a-entity gltf-model="#tree" rotation="0 -68 0" position="140 0 -65" scale="5 5 5"></a-entity>
+      <a-entity gltf-model="#tree" rotation="0 -23 0" position="144 0 -40" scale="5 5 5"></a-entity>
+
+      <a-entity id="house-basic" position="-100 0.6 100">
+        <a-box color="#fff" width="10" height="1" depth="5" position="0 0 -2.5" material="color: #FFF; src:#wood; repeat: 25 25;"></a-box>
+        <a-entity id="front-wall" position="0 1 -5">
+          <a-box color="#fff" width="8" height="1" depth=".1" position="-1 0 0" material="src: #concrete; repeat: 8 1;"></a-box>
+          <a-box color="#fff" width="1" height="1.5" depth=".1" position="-4.5 1 0" material="src: #concrete; repeat: 1 1.5;"></a-box>
+  
+          <a-entity gltf-model="#window" position="-3.6 1.657 0.05" rotation="0 0 -180"></a-entity>
+          <a-entity gltf-model="#window" position="-2.8 0.5 0.05"></a-entity>
+          <a-box id="bar" color="#fff" position="-3.25 1.68 0" width="1.5" height="0.15" depth="0.1" material="src: #concrete; repeat: 8 1;"></a-box>
+          <a-box color="#fff" width="2" height="1.5" depth=".1" position="-1.5 1 0" material="src: #concrete; repeat: 2 1.5;"></a-box>
+          <a-entity gltf-model="#big-window" position="0.1 1.1 0" scale=".01 .01 .01"></a-entity>
+          <a-entity gltf-model="#big-window" position="1.2 1.1 0" scale=".01 .01 .01"></a-entity>
+
+          <a-box id="bar" color="#fff" position="0.65 1.68 0" width="2.3" height="0.15" depth="0.1" material="src: #concrete; repeat: 2.3 0.15;"></a-box>
+
+          <a-box color="#fff" width="1.2" height="1.5" depth=".1" position="2.4 1 0" material="src: #concrete; repeat: 1.2 1.5;"></a-box>
+          <a-box id="door" position="3.5 .5 0" width="1" height="2.5" depth=".1" material="src: #wood; repeat: 1 2.5;"></a-box>
+          <a-box color="#fff" width="1" height="2.5" depth=".1" position="4.5 0.5 0" material="src: #concrete; repeat: 1 2.5;"></a-box>
+          <a-box color="#fff" width="10" height=".5" depth=".1" position="0 2 0" material="src: #concrete; repeat: 10 0.5;"></a-box>
+        </a-entity>
+      <a-entity id="side-wall" position="4.95 1 -2.5">
+        <a-box color="#3D2B1F" position="0 0.25 0" height="4" width=".1" depth="5"></a-box>
+      </a-entity>
+      <a-entity id="side-wall" position="-4.95 1 -2.5">
+        <a-box color="#3D2B1F" position="0 0.25 0" height="4" width=".1" depth="5"></a-box>
+      </a-entity>
+      <a-entity id="back-wall" position="0 1.25 0">
+        <a-box color="white" width="10" height="4" depth="0.1"></a-box>
+      </a-entity>
+
+      <a-entity id="front-porch" position="0 .48 -6">
+        <a-box material="src: #wood; repeat: 10 2;" width="10" height=".1" depth="2"></a-box>
+      </a-entity>
+
+      <a-entity id="roof">
+        <a-box width="10" height="3.5" depth=".2" position="0 4.5 -1.3" rotation="-45 0 0" material="color:#FFF; src: #roof1; repeat: 10 3.5;"></a-box>
+        <a-box width="10" height="3.5" depth=".2" position="0 4.5 -3.7" rotation="45 0 0" material="color:#FFF; src: #roof1; repeat: 10 3.5;"></a-box>
+        <a-box width="10" height="2" depth=".1" position="0 2.9 -5.9" rotation="65 0 0" material="color:#FFF; src: #roof1; repeat: 10 2;"></a-box>
+      </a-entity>
+      <a-image src="#cableman" position="0 2 -5" color="#FFF" scale="2 2 1"></a-image>
+      </a-entity>
+      
+      <a-video src="#horse" position="-100 15 70" width="10" height="10" rotation="45 0 0"></a-video>
+
+
+      
+    </a-scene>
+  </body>
+</html>
